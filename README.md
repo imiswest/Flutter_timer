@@ -1,16 +1,14 @@
-# flutter_timer  
+<div align="center">
 
-A new Flutter project.
+# flutter_basic_01
 
-## Getting Started
+<br/>
 
-This project is a starting point for a Flutter application.
+플러터 기초부터 탄탄하게 다시 공부 시이작!
+<br/>
 
-A few resources to get you started if this is your first Flutter project:
+:small_red_triangle_down: A Book For Study :small_red_triangle_down:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<td align="center"><img src="http://image.yes24.com/goods/109020524/XL" width="150px;"><br /><sub><b>쉽고 빠른 플러터 앱 개발 (권태형)</b></sub></a><br /></a></td>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+</div>

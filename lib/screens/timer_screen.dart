@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 
 ///상태란? 화면에 나타나는 변수 중 지속적으로 변하는 데이터
@@ -15,7 +16,6 @@ class TimerScreen extends StatefulWidget {
 
 class _TimerScreenState extends State<TimerScreen> { //State(플러터 자체 내부 클래스)를 상속하는 클래스
   ///변수 3개 ; 타이머의 시간 / 타이머의 상태(Status) / 뽀모도로의 개수
-
   static const WORK_SECONDS = 25;
   static const REST_SECONDS =5;
 
@@ -30,6 +30,44 @@ class _TimerScreenState extends State<TimerScreen> { //State(플러터 자체 �
     print(_timerStatus.toString());
     _timer = WORK_SECONDS; //남은 타이머 시간
     _pomodoroCount = 0; //뽀모도로 개수
+  }
+
+  ///이벤트 5개 ; 메서드의 형태로 구현
+  void run() { //이벤트1
+    setState(() {
+      _timerStatus = TimerStatus.running;
+      print('[=>]' + _timerStatus.toString());
+      runTimer();
+    });
+  }
+
+  void rest() { //이벤트2
+    setState(() {
+      _timer = REST_SECONDS;
+      _timerStatus = TimerStatus.resting;
+      print('[=>]' + _timerStatus.toString());
+    });
+  }
+
+  void pause() { //이벤트3
+    setState(() {
+      _timerStatus = TimerStatus.paused;
+      print("[=>]" + _timerStatus.toString());
+    });
+  }
+
+  void resume() { //이벤트4
+    setState(() {
+      run();
+    });
+  }
+
+  void stop() { //이벤트5
+    setState(() {
+      _timer = WORK_SECONDS;
+      _timerStatus = TimerStatus.stopped;
+      print('[=>]' + _timerStatus.toString());
+    });
   }
 
   Widget build(BuildContext context) {

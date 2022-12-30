@@ -1,14 +1,37 @@
 import 'package:flutter/material.dart';
 
+///상태란? 화면에 나타나는 변수 중 지속적으로 변하는 데이터
+
+enum TimerStatus {running, paused, stopped, resting} //TimerStatus라는 자료형이 가질 수 있는 값들을 정의
+
 class TimerScreen extends StatefulWidget {
-  @override
+  @override //여기 override 굳이 왜 하는거지?
   _TimerScreenState createState() => _TimerScreenState();
+  // StatefulWidget 클래스 내에서는 createState()라는 메서드 사용. 내부에서 사용할 State를 생성.
+  // createState를 통해 상태를 생성
 }
 
 /// <삼항연산자>  조건 ? 참일때 실행할 문장 : 거짓일때 실행할 문장
 
-class _TimerScreenState extends State<TimerScreen> {
+class _TimerScreenState extends State<TimerScreen> { //State(플러터 자체 내부 클래스)를 상속하는 클래스
+  ///변수 3개 ; 타이머의 시간 / 타이머의 상태(Status) / 뽀모도로의 개수
+
+  static const WORK_SECONDS = 25;
+  static const REST_SECONDS =5;
+
+  late TimerStatus _timerStatus; //late는 초기값을 설정해야하는 변수의 초기화를 나중에 하겠다는 키워드
+  late int _timer;
+  late int _pomodoroCount;
+
   @override
+  void initState() { //초기값 설정
+    super.initState();
+    _timerStatus = TimerStatus.stopped; //timer의 초기 상태 : 정지
+    print(_timerStatus.toString());
+    _timer = WORK_SECONDS; //남은 타이머 시간
+    _pomodoroCount = 0; //뽀모도로 개수
+  }
+
   Widget build(BuildContext context) {
     final List<Widget> _runningButtons = [
       ElevatedButton(
@@ -19,10 +42,11 @@ class _TimerScreenState extends State<TimerScreen> {
         style: ElevatedButton.styleFrom(primary: Colors.blue),
         onPressed: () {},
       ),
+
       Padding(padding: EdgeInsets.all(20)),
+
       ElevatedButton(
-        child: Text(
-          '포기하기',
+        child: Text('포기하기',
           style: TextStyle(fontSize: 16),
         ),
         style: ElevatedButton.styleFrom(primary: Colors.grey),

@@ -10,5 +10,5 @@
 :small_red_triangle_down: A Book For Study :small_red_triangle_down:
 
 <td align="center"><img src="http://image.yes24.com/goods/109020524/XL" width="150px;"><br /><sub><b>쉽고 빠른 플러터 앱 개발 (권태형)</b></sub></a><br /></a></td>
-
+ 
 </div>
